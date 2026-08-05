@@ -13,6 +13,7 @@ export default {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
+    new Dotenv(),
   ],
   module: {
     rules: [

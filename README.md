@@ -9,4 +9,6 @@
 
 5- Run the npm run start, as you can see commands in the package.json file
 
-6- Note: if some extra dependencies are required, dowload them.
+6- npm install dotenv-webpack --save-dev (used for the API keys)
+
+7- Note: if some extra dependencies are required, dowload them.
