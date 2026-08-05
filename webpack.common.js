@@ -11,25 +11,26 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: "./src/index.html",
+      template: "./src/index.html",
     }),
   ],
   module: {
     rules: [
-        {
+      {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
-        },
-        {
+      },
+      {
         test: /\.(png|svg|jpg|jpeg|gif|mp4|webm|ogg)$/i,
         type: "asset/resource",
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "asset/fonts/[name][ext]",
         },
-        {
-          test: /\.(woff2?|eot|ttf|otf)$/i,
-          type: "asset/resource",
-          generator: {
-            filename: "asset/fonts/[name][ext]",
-        },
+      },
     ],
   },
 };

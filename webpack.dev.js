@@ -10,5 +10,5 @@ export default merge(common, {
     static: "./dist",
     watchFiles: ["./src/index.html"],
     open: true,
-  }
+  },
 });

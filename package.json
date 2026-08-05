@@ -22,7 +22,9 @@
   },
   "homepage": "https://github.com/rayssarrsilva/todo-list#readme",
   "devDependencies": {
+    "html-webpack-plugin": "^5.6.8",
     "webpack": "^5.108.4",
-    "webpack-cli": "^7.2.1"
+    "webpack-cli": "^7.2.1",
+    "webpack-dev-server": "^6.0.0"
   }
 }
