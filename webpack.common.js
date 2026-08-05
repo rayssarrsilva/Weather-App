@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "node:path";
+import Dotenv from "dotenv-webpack";
 
 export default {
   entry: "./src/index.js",
