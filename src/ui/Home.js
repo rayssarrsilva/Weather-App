@@ -30,7 +30,7 @@ export default function Home() {
 
   const footer = document.createElement("footer");
   footer.classList.add("home-footer");
-  footer.textContent = `© ${new Date().getFullYear()} WeatherSearch. All rights reserved.`;
+  footer.textContent = `© ${new Date().getFullYear()} Rayssa Roberta R. Silva. All rights reserved.`;
 
   content.append(rings, Controls(), hero, footer);
   return content;
