@@ -1,5 +1,7 @@
 ## Run in your machine
 1- Install Node (https://nodejs.org/pt-br/download)
+1.1 - Create the .env file in the root
+1.2 - Put the Variable KEY and your API_KEY as the value
 
 2- npm install  
 
@@ -12,3 +14,4 @@
 6- npm install dotenv-webpack --save-dev (used for the API keys, with the command process.env.API_NAME)
 
 7- Note: if some extra dependencies are required, dowload them.
+
