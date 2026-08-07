@@ -1,5 +1,5 @@
 import { searchLocation } from "../api/search.js";
-import { showLocation } from "../router.js";
+import { showSearch } from "../router.js";
 import "../style/home.css";
 
 export default function Home() {
@@ -57,15 +57,22 @@ export default function Home() {
     timeout = setTimeout(async () => {
       try {
         const locations = await searchLocation(query);
+
         suggestions.innerHTML = "";
 
         locations.forEach((location) => {
           const item = document.createElement("button");
+
           item.type = "button";
           item.classList.add("suggestion");
 
-          const region = location.admin1 ? `, ${location.admin1}` : "";
-          const country = location.country ? `, ${location.country}` : "";
+          const region = location.admin1
+            ? `, ${location.admin1}`
+            : "";
+
+          const country = location.country
+            ? `, ${location.country}`
+            : "";
 
           const name = document.createElement("span");
           name.classList.add("suggestion-name");
@@ -73,21 +80,26 @@ export default function Home() {
 
           const place = document.createElement("span");
           place.classList.add("suggestion-place");
-          place.textContent = `${region}${country}`.replace(/^,\s*/, "");
+          place.textContent =
+            `${region}${country}`.replace(/^,\s*/, "");
 
           item.append(name, place);
 
           item.addEventListener("click", () => {
             input.value = location.name;
+
             suggestions.innerHTML = "";
             suggestions.classList.remove("active");
-            console.log(location);
+
+            showSearch(location);
           });
 
           suggestions.appendChild(item);
         });
 
-        if (locations.length > 0) suggestions.classList.add("active");
+        if (locations.length > 0) {
+          suggestions.classList.add("active");
+        }
       } catch (error) {
         console.error(error);
       }

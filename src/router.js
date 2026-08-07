@@ -1,14 +1,11 @@
 import Home from "./ui/Home.js";
-import Location from "./ui/search.js";
-
-const app = document.querySelector("#content");
+import Search from "./ui/Search.js";
+import { renderPage } from "./ui/Page.js";
 
 export function showHome() {
-  app.innerHTML = "";
-  app.appendChild(Home());
+  renderPage(Home());
 }
 
-export function showLocation(location) {
-  app.innerHTML = "";
-  app.appendChild(Location(location));
+export function showSearch(location) {
+  renderPage(Search(location));
 }
