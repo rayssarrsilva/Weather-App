@@ -3,12 +3,17 @@ export async function searchLocation(query) {
     return [];
   }
 
-  const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=5&language=en&format=json`;
+  const url =
+    `https://geocoding-api.open-meteo.com/v1/search` +
+    `?name=${encodeURIComponent(query)}` +
+    `&count=5` +
+    `&language=en` +
+    `&format=json`;
 
   const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error("Failed to search locations");
+    throw new Error(`Failed to search locations: ${response.status}`);
   }
 
   const data = await response.json();
