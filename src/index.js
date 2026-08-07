@@ -1,5 +1,5 @@
 import InitialPage from "./ui/Home.js";
-import getWeather from "./api/client.js";
+import {getWeather} from "./api/client.js";
 
 const app = document.querySelector("#content");
 
