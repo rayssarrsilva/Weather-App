@@ -20,6 +20,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        env:
+          API: ${{ secrets.API }}
 
       - name: Build project
         run: npm run build   
