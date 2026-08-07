@@ -104,7 +104,7 @@ npm run start
 
 ## Live Demo
 
-Link to the deployed version:
+Link to the deployed version: [rayssarrsilva.github.io/Weather-App/](https://rayssarrsilva.github.io/Weather-App/)
 
 ## Author
 
