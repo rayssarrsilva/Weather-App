@@ -1,13 +1,16 @@
 const KEY = process.env.KEY;
 
 export async function getWeather(location) {
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(location)}/?key=${KEY}`
-    
-    const response = await fetch(url);
+  const url =
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/` +
+    `${encodeURIComponent(location)}` +
+    `?unitGroup=us&key=${KEY}&contentType=json`;
 
-    if (!response.ok){
-        throw new Error("Failed to fetch weather data");
-    }
+  const response = await fetch(url);
 
-    return response.json();
+  if (!response.ok) {
+    throw new Error("Failed to fetch weather data");
+  }
+
+  return response.json();
 }
