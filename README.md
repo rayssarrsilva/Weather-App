@@ -8,6 +8,7 @@
 3- check if npx webpack -v is available if not run: npm install --save-dev webpack-dev-server
 
 4- npm install --save-dev html-webpack-plugin
+4.1 - npm install --save-dev style-loader css-loader
 
 5- Run the npm run start, as you can see commands in the package.json file
 

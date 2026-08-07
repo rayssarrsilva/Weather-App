@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+.home {
+  --bg: #0d131c;
+  --surface: #161f2b;
+  --surface-2: #1c2733;
+  --border: #2a3543;
+  --border-soft: #212b38;
+  --text: #eef1f6;
+  --text-muted: #8d96a5;
+  --accent: #c8a76b;
+  --accent-dim: rgba(200, 167, 107, 0.16);
+  --accent-line: rgba(200, 167, 107, 0.35);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: var(--bg);
+  font-family: var(--font-body);
+  color: var(--text);
+  overflow: hidden;
+}
+
+/* Signature element: faint isobar rings, like a pressure map */
+.isobars {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1100px;
+  height: 1100px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      var(--accent-dim) 0px,
+      transparent 1px,
+      transparent 90px,
+      var(--accent-dim) 91px
+    );
+  opacity: 0.35;
+  pointer-events: none;
+  animation: drift 90s linear infinite;
+}
+
+@keyframes drift {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  margin-bottom: 64px;
+  padding-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--accent-line);
+}
+
+.home h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 40px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.home h1 span {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.home p {
+  margin: 14px 0 44px;
+  color: var(--text-muted);
+  font-size: 16px;
+  letter-spacing: 0.01em;
+}
+
+.search-container {
+  position: relative;
+  width: 470px;
+  max-width: 100%;
+}
+
+.search-container input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 19px 22px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  outline: none;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-container input::placeholder {
+  color: #5f6a79;
+}
+
+.search-container input:hover {
+  border-color: #3a4655;
+}
+
+.search-container input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.suggestions {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  max-height: 260px;
+  overflow-y: auto;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-align: left;
+  z-index: 10;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+.suggestions.active {
+  display: block;
+}
+
+.suggestion {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 20px;
+  border: 0;
+  border-bottom: 1px solid var(--border-soft);
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.suggestion:last-child {
+  border-bottom: 0;
+}
+
+.suggestion:hover,
+.suggestion:focus-visible {
+  background: var(--accent-dim);
+  outline: none;
+}
+
+.suggestion-name {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.suggestion-place {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.home-footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 64px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #4c5666;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .isobars {
+    animation: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .home h1 {
+    font-size: 32px;
+  }
+
+  .isobars {
+    width: 700px;
+    height: 700px;
+  }
+}
