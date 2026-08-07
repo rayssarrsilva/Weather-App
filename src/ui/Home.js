@@ -1,4 +1,5 @@
 import { searchLocation } from "../api/search.js";
+import { showLocation } from "../router.js";
 import "../style/home.css";
 
 export default function Home() {

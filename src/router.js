@@ -1,5 +1,5 @@
 import Home from "./ui/Home.js";
-import Location from "./ui/Location.js";
+import Location from "./ui/search.js";
 
 const app = document.querySelector("#content");
 

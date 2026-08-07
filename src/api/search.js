@@ -1,17 +1,25 @@
-export async function searchLocation(query){
-    if (!query.trim()) {
-        return [];
-    }
+import { getWeather } from "../api/client.js";
+import "../style/home.css";
 
-    const url = `https://geocoding-api.open-meteo.com/v1/search?name= ${encodeURIComponent(query)}&count=5&language=en&format=json`;
+export default function Location(location) {
+  const content = document.createElement("main");
+  content.classList.add("location");
 
-    const response = await fetch(url);
+  const title = document.createElement("h1");
+  title.textContent = location.name;
 
-    if (!response.ok){
-        throw Error("Failed to search locations");
-    }
+  const info = document.createElement("p");
+  info.textContent = `${location.admin1 || ""}, ${location.country || ""}`;
 
-    const data = await response.json();
+  content.append(title, info);
 
-    return data.results || [];
+  getWeather(location.name)
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  return content;
 }
