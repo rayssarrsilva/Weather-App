@@ -6,7 +6,7 @@ export function getTheme() {
 }
 
 export function getUnit() {
-  return localStorage.getItem(UNIT_KEY) || "c";
+  return localStorage.getItem(UNIT_KEY) || "f";
 }
 
 function applyTheme(theme) {
@@ -27,19 +27,26 @@ export function toggleTheme() {
 }
 
 export function toggleUnit() {
-  setUnit(getUnit() === "c" ? "f" : "c");
+  setUnit(getUnit() === "f" ? "c" : "f");
 }
 
 export function initPreferences() {
   applyTheme(getTheme());
 }
 
-export function toFahrenheit(celsius) {
-  return Math.round((celsius * 9) / 5 + 32);
+export function toCelsius(fahrenheit) {
+  return Math.round((fahrenheit - 32) * 5 / 9);
 }
 
-export function formatTemp(celsius, unit = getUnit()) {
-  if (celsius === undefined || celsius === null) return "--°";
-  const value = unit === "f" ? toFahrenheit(celsius) : Math.round(celsius);
+export function formatTemp(fahrenheit, unit = getUnit()) {
+  if (fahrenheit === undefined || fahrenheit === null) {
+    return "--°";
+  }
+
+  const value =
+    unit === "c"
+      ? toCelsius(fahrenheit)
+      : Math.round(fahrenheit);
+
   return `${value}°${unit.toUpperCase()}`;
 }
